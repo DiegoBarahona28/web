@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web Interactiva</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #dfdada;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .navbar {
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #00c6ff;
+            border-radius: 5px;
+        }
+
+
+        .and1,
+        .and2 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+        }
+
+        .and1 {
+            left: 15px;
+        }
+
+        .and2 {
+            right: 15px;
+        }
+
+        .section {
+            display: none;
+            padding: 50px;
+            background-color: #ffffff;
+            color: #333;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        #servicios h2,
+        #ubicacion h2,
+        #medicos h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #0072ff;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #0072ff;
+            font-size: 1.3rem;
+            margin-top: 10px;
+        }
+
+
+        .ubicacion-info {
+            margin-top: 20px;
+            position: relative;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+
+        .medico {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .medico img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .medico img:hover {
+            transform: scale(1.05);
+        }
+
+        .medico h3 {
+            color: #0072ff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .medico p {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .image-gallery {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .image-gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+        #ubicacion {
+            margin-top: 100px;
+        }
+
+        .kuzu123 {
+            color: #000000;
+            font-size: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .kuzu12 {
+            color: #00c6ff;
+        }
+
+        .kuzuko {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .añaokk {
+            margin-top: 20px;
+        }
+
+
+        @media (max-width: 768px) {
+            .navbar ul li {
+                margin-right: 15px;
+                font-size: 16px;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .card img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .section {
+                padding: 30px;
+            }
+
+            #servicios h2,
+            #ubicacion h2,
+            #medicos h2 {
+                font-size: 1.5rem;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
+
+            .kuzu123 {
+                font-size: 30px;
+            }
+
+            .and1,
+            .and2 {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .card {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+
+            .card img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .card img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .kuzu123 {
+                font-size: 25px;
+            }
+
+            .and1,
+            .and2 {
+                width: 70px;
+                height: 70px;
+            }
+
+            .medico img {
+                width: 120px;
+                height: 120px;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#" id="link-servicios">Servicios</a></li>
+                <li><a href="#" id="link-ubicacion">Ubicación</a></li>
+                <li><a href="#" id="link-medicos">Médicos</a></li>
+            </ul>
+
+            <img class="and1"
+                src="https://www.dropbox.com/scl/fi/7mid03i26gpvzu8tpx2oi/caduceus-clipart-lg.png?rlkey=pqxzibzwudv2hnc39m9gcy9dk&st=s6oilim8&raw=1"
+                alt="">
+            <img class="and2"
+                src="https://www.dropbox.com/scl/fi/mu8tsdg1tl51d5gf85iok/images-13.jpeg?rlkey=debc4thxmzedbh84zl6fpngqt&st=vvxlgkrh&raw=1"
+                alt="">
+        </nav>
+    </header>
+    <div id="content">
+
+        <section id="servicios" class="section">
+            <h2>Servicios</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Consulta General para niños y adultos</h3>
+                    <img src="https://www.dropbox.com/scl/fi/u8q8m60do8c3cy38an7ad/images-8.jpeg?rlkey=q2ge7u8n7q2g2qfttv8qtgvmt&st=uq80phbj&raw=1"
+                        alt="">
+                    <p class="kuzu12">Descripción del servicio</p>
+                    <p>Consultas de enfermedades como: Hipertensión, Diabetes Mellitus, Insuficiencia renal, Etc.</p>
+                </div>
+                <div class="card">
+                    <h3>Enfermedades respiratorias</h3>
+                    <img src="https://www.dropbox.com/scl/fi/pjd68wcsgbu351aup9x4l/images-12.jpeg?rlkey=aonie38f7sqchhvkhim8jjr93&st=6tymzhq6&raw=1"
+                        alt="">
+                    <p class="kuzu12">Descripción del servicio</p>
+                    <p>Como: Bronquitis, Gripe, Tos, Infecciones respiratorias, Etc.</p>
+                </div>
+                <div class="card">
+                    <h3>Enfermedades Estomacales</h3>
+                    <img src="https://www.dropbox.com/scl/fi/7soryps4nsw3ccs0vlnjs/istockphoto-1710519411-612x612.jpg?rlkey=s3dzg8m47qs7uqi5a2wu0znxe&st=mpdt8bhh&raw=1"
+                        alt="">
+                    <p class="kuzu12">Descripción del servicio</p>
+                    <p>Como: Gastritis, Náuseas, Vómitos, Diarrea, Etc.</p>
+                </div>
+                <div class="card">
+                    <h3>Toma de Electrocardiograma</h3>
+                    <img src="https://www.dropbox.com/scl/fi/q1mejql6hkoxd4cr88m5r/iStock-1205212219_1.jpg?rlkey=alfxvynqwhejtd02nedqf6nbv&st=ndlembg7&raw=1"
+                        alt="">
+                </div>
+                <div class="card">
+                    <h3>Pequeñas cirujías</h3>
+                    <img src="https://www.dropbox.com/scl/fi/bu3xaz0qorflbr1s1tl75/1.png?rlkey=9m713xt0tdgj5tpqkq8zem3j2&st=qjfpyf6l&raw=1"
+                        alt="">
+                    <p class="kuzu12">Descripción del servicio</p>
+                    <p>Sutura de heridas, Curaciones, Retiro de puntos,retiro de lunares y de verrugas</p>
+                </div>
+                <div class="card">
+                    <h3>Retiro de uñas encarnadas</h3>
+                    <img src="https://www.dropbox.com/scl/fi/pyhdd8g324eohgwmz17zo/hq720.jpg?rlkey=lxy06o5yf6b5ao1typojv3eir&st=40ayaysc&raw=1"
+                        alt="">
+                </div>
+                <div class="card">
+                    <h3>Terapias respiratorias</h3>
+                    <img src="https://www.dropbox.com/scl/fi/7v4ggidpiwgpnb4erv4kh/nebulizaciones.png?rlkey=2glxr1up3ri1husl9md35b243&st=ztnnpft7&raw=1"
+                        alt="">
+                </div>
+                <div class="card">
+                    <h3>Deshidratacion</h3>
+                    <img src="https://www.dropbox.com/scl/fi/28l8kdkve4adhacidhrzb/01.-Enfermedad-diarreica.png?rlkey=nuu4hjz5bop1q7roggcaihi66&st=a8ifitd5&raw=1"
+                        alt="">
+                    <p>Por Vomito y Diarrea</p>
+                </div>
+                <div class="card">
+                    <h3>Aplicacion de sueros vitaminados</h3>
+                    <img src="https://www.dropbox.com/scl/fi/8q89m8fbbk1y04brzlwk1/teaserbox_21528424.jpg?rlkey=v05089unyihfe1afny5ugaj4q&st=cn70ldz8&raw=1"
+                        alt="">
+                </div>
+            </div>
+
+
+
+    </div>
+    </section>
+
+    <section id="ubicacion" class="section">
+        <h2>Ubicación</h2>
+        <div class="ubicacion-info">
+            <p class="kuzuko">FINAL 4 C PTE SALIDA A YAMABAL, SAN FRANCISCO GOTERA, MORAZÁN</p>
+            <iframe class="añaokk"
+                src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d956388.4096993512!2d-88.262543!3d13.642532!3m2!1i1024!2i768!4f13.1!2m1!1sColonia%20la%20paz%20san%20francisco%20gotera!5e1!3m2!1ses-419!2ssv!4v1742254515499!5m2!1ses-419!2ssv"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+
+    <section id="medicos" class="section">
+        <h2>Médicos</h2>
+        <div class="medico">
+            <img src="https://www.dropbox.com/scl/fi/6mdk2efpjpy1ki0pwb7nr/images-2121.png?rlkey=pyuzonvizvkb640ekc4f6bh0l&st=ts36snx1&raw=1"
+                alt="">
+            <h3>Dr. Oscar Armando Barahona</h3>
+            <p>Doctor en medicina</p>
+            <p>Numero de teléfono 7925-9810</p>
+        </div>
+        <div class="medico">
+            <img src="https://www.dropbox.com/scl/fi/8g0pkyoe8mxbb0vwh8plk/dra.png?rlkey=k8uj3ucno3w9904gzr8jx22ui&st=mv7fjaps&raw=1"
+                alt="">
+            <h3>Dra. Cecilia Armero Durán</h3>
+            <p>Doctora en medicina</p>
+            <p>Numero de teléfono 7646-2649</p>
+        </div>
+    </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Clínica San Antonio</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        document.getElementById('link-servicios').addEventListener('click', function (e) {
+            e.preventDefault();
+            showSection('servicios');
+        });
+
+        document.getElementById('link-ubicacion').addEventListener('click', function (e) {
+            e.preventDefault();
+            showSection('ubicacion');
+        });
+
+        document.getElementById('link-medicos').addEventListener('click', function (e) {
+            e.preventDefault();
+            showSection('medicos');
+        });
+
+        showSection('servicios');
+        
+    </script>
+</body>
+
+</html>
